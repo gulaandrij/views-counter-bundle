@@ -2,7 +2,9 @@ services:
     views_counter.visitable_manager:
         class: Lavulator\ViewsCounterBundle\Manager\VisitableManager
         arguments: ["@doctrine.orm.entity_manager"]
+        public: true
 
     views_counter.views_counter:
         class: Lavulator\ViewsCounterBundle\Manager\ViewsCounter
         arguments: ["@session", "@views_counter.visitable_manager"]
+        public: true
