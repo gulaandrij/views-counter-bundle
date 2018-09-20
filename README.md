@@ -10,7 +10,7 @@ ViewsCounter increments views counts for document/entity.
 ViewsCounter bundle is installed using [Composer][1].
 
 ```bash
-composer require cengizhancaliskan/views-counter-bundle
+composer require gulaandrij/views-counter-bundle
 
 ```
 
@@ -23,7 +23,7 @@ public function registerBundles()
 {
     $bundles = [
         // ...
-        new Cengizhan\ViewsCounterBundle\CengizhanViewsCounterBundle(),
+        new Lavulator\ViewsCounterBundle\CengizhanViewsCounterBundle(),
     ];
 
     // ...
@@ -38,8 +38,8 @@ public function registerBundles()
 
 namespace YourBundle\YourEntity;
 
-use Cengizhan\ViewsCounterBundle\Model\VisitableInterface;
-use Cengizhan\ViewsCounterBundle\Traits\VisitableEntityTrait;
+use Lavulator\ViewsCounterBundle\Model\VisitableInterface;
+use Lavulator\ViewsCounterBundle\Traits\VisitableEntityTrait;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -94,7 +94,7 @@ If you can query builder ( recommendation for cached entity )
 ```yml
 # config.yml
 ....
-cengizhan_views_counter:
+lavulator_views_counter:
     use_query_builder: true
 ```
 
