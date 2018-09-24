@@ -4,6 +4,7 @@ namespace Lavulator\ViewsCounterBundle\Traits;
 
 trait VisitableDocumentTrait
 {
+
     /**
      * @var int
      *
@@ -33,9 +34,9 @@ trait VisitableDocumentTrait
      *
      * @return string
      */
-    public function getVisitorId()
+    public function getVisitorId(): string
     {
-        if (is_callable([$this, 'getId'])) {
+        if (\is_callable([$this, 'getId'])) {
             return sprintf('%s', $this->getId());
         }
 
@@ -47,15 +48,15 @@ trait VisitableDocumentTrait
      *
      * @return string
      */
-    public function getVisitable()
+    public function getVisitable(): string
     {
-        return strtolower(get_class($this));
+        return strtolower(static::class);
     }
 
     /**
      * @return bool
      */
-    public function isSingularViewed()
+    public function isSingularViewed(): bool
     {
         return $this->singularViewed;
     }
@@ -63,7 +64,7 @@ trait VisitableDocumentTrait
     /**
      * @return bool
      */
-    public function isPluralViewed()
+    public function isPluralViewed(): bool
     {
         return $this->pluralViewed;
     }
@@ -71,7 +72,7 @@ trait VisitableDocumentTrait
     /**
      * @return int
      */
-    public function getSingularViewCount()
+    public function getSingularViewCount(): int
     {
         return $this->singularViewCount;
     }
@@ -81,7 +82,7 @@ trait VisitableDocumentTrait
      *
      * @return $this
      */
-    public function setSingularViewCount($singularViewCount)
+    public function setSingularViewCount($singularViewCount): self
     {
         $this->singularViewCount = $singularViewCount;
 
@@ -93,7 +94,7 @@ trait VisitableDocumentTrait
      *
      * @return int
      */
-    public function onSingularViewed()
+    public function onSingularViewed(): int
     {
         return $this->singularViewCount++;
     }
@@ -101,7 +102,7 @@ trait VisitableDocumentTrait
     /**
      * @return int
      */
-    public function getPluralViewCount()
+    public function getPluralViewCount(): int
     {
         return $this->pluralViewCount;
     }
@@ -111,7 +112,7 @@ trait VisitableDocumentTrait
      *
      * @return $this
      */
-    public function setPluralViewCount($pluralViewCount)
+    public function setPluralViewCount($pluralViewCount): self
     {
         $this->pluralViewCount = $pluralViewCount;
 
@@ -123,7 +124,7 @@ trait VisitableDocumentTrait
      *
      * @return int
      */
-    public function onPluralViewed()
+    public function onPluralViewed(): int
     {
         return $this->pluralViewCount++;
     }

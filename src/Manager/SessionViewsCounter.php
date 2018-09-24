@@ -7,9 +7,14 @@ use Lavulator\ViewsCounterBundle\Model\VisitableInterface;
 use Lavulator\ViewsCounterBundle\Model\VisitableManagerInterface;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 
-class ViewsCounter implements ViewsCounterInterface
+/**
+ * Class SessionViewsCounter
+ *
+ * @package Lavulator\ViewsCounterBundle\Manager
+ */
+class SessionViewsCounter implements ViewsCounterInterface
 {
-    const SESSION_KEY = '_views_counter';
+    public const SESSION_KEY = '_views_counter';
 
     /**
      * @var SessionInterface
@@ -32,9 +37,9 @@ class ViewsCounter implements ViewsCounterInterface
     }
 
     /**
-     * {@inheritdoc}
+     * @param VisitableInterface $visitable
      */
-    public function count(VisitableInterface $visitable)
+    public function count(VisitableInterface $visitable): void
     {
         $viewsSession = $this->session->get(self::SESSION_KEY);
 
@@ -58,7 +63,7 @@ class ViewsCounter implements ViewsCounterInterface
      * @param array              $viewsSession
      * @param VisitableInterface $visitable
      */
-    private function saveVisitable(array $viewsSession, $visitable)
+    private function saveVisitable(array $viewsSession, $visitable): void
     {
         $viewsSession[$visitable->getVisitable()] = [];
 
@@ -69,7 +74,7 @@ class ViewsCounter implements ViewsCounterInterface
      * @param array              $viewsSession
      * @param VisitableInterface $visitable
      */
-    private function saveVisitorId(array $viewsSession, $visitable)
+    private function saveVisitorId(array $viewsSession, $visitable): void
     {
         $viewsSession[$visitable->getVisitable()][$visitable->getVisitorId()] = $visitable->getVisitorId();
 

@@ -5,6 +5,11 @@ services:
         public: true
 
     views_counter.views_counter:
-        class: Lavulator\ViewsCounterBundle\Manager\ViewsCounter
+        class: Lavulator\ViewsCounterBundle\Manager\SessionViewsCounter
+        arguments: ["@session", "@views_counter.visitable_manager"]
+        public: true
+
+    views_counter.cookie_views_counter:
+        class: Lavulator\ViewsCounterBundle\Manager\CookieViewsCounter
         arguments: ["@session", "@views_counter.visitable_manager"]
         public: true

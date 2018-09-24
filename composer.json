@@ -11,20 +11,39 @@
   ],
   "homepage": "https://github.com/gulaandrij/views-counter-bundle",
   "require": {
-    "php": ">=5.4",
+    "php": ">=7.1",
     "symfony/dependency-injection": "^2.7 || ^3.0 || ^4.0",
     "symfony/config": "^2.7 || ^3.0 || ^4.0",
     "symfony/http-kernel": "^2.7 || ^3.0 || ^4.0",
     "symfony/http-foundation": "^2.7 || ^3.0 || ^4.0",
-    "doctrine/orm": "2.6.*"
+    "symfony/framework-bundle": "^2.7 || ^3.0 || ^4.0",
+    "doctrine/orm": "2.6.*",
+    "symfony/routing": "^4.1",
+    "doctrine/doctrine-bundle": "^1.0",
+    "symfony/var-dumper": "^4.1"
   },
-  "require-dev": {},
+  "require-dev": {
+    "gulaandrij/coding-standard": "^1.0.2",
+    "symfony/phpunit-bridge": "^4.1",
+    "liip/functional-test-bundle": "~2.0@alpha",
+    "symfony/yaml": "^4.1"
+  },
   "license": "MIT",
   "autoload": {
     "psr-4": {
       "Lavulator\\ViewsCounterBundle\\": "src"
     }
   },
+  "autoload-dev": {
+    "psr-4": {
+      "Tests\\": "tests"
+    }
+  },
+  "config": {
+    "optimize-autoloader": true
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true,
   "extra": {
     "thanks": {
       "name": "cengizhancaliskan/views-counter-bundle",

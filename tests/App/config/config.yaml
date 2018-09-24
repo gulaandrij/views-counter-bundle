@@ -1,0 +1,28 @@
+framework:
+  secret: test
+  test: true
+  session:
+    storage_id: session.storage.mock_file
+    name: MOCKSESSION
+  annotations: ~
+
+doctrine:
+  dbal:
+    # configure these for your database server
+    driver: pdo_sqlite3
+
+    url: 'sqlite:////%kernel.project_dir%/tests/db.sqlite'
+  orm:
+    auto_generate_proxy_classes: '%kernel.debug%'
+    naming_strategy: doctrine.orm.naming_strategy.underscore
+    auto_mapping: true
+    mappings:
+      App:
+        is_bundle: false
+        type: annotation
+        dir: '%kernel.project_dir%/tests/App/Entity'
+        prefix: 'Tests\App\Entity'
+        alias: Tests\App
+
+#liip_functional_test:
+#  cache_sqlite_db: true

@@ -6,6 +6,7 @@ use Doctrine\ORM\Mapping as ORM;
 
 trait VisitableEntityTrait
 {
+
     /**
      * @var int
      *
@@ -35,9 +36,9 @@ trait VisitableEntityTrait
      *
      * @return string
      */
-    public function getVisitorId()
+    public function getVisitorId(): string
     {
-        if (is_callable([$this, 'getId'])) {
+        if (\is_callable([$this, 'getId'])) {
             return sprintf('%s', $this->getId());
         }
 
@@ -49,15 +50,15 @@ trait VisitableEntityTrait
      *
      * @return string
      */
-    public function getVisitable()
+    public function getVisitable(): string
     {
-        return strtolower(get_class($this));
+        return strtolower(static::class);
     }
 
     /**
      * @return bool
      */
-    public function isSingularViewed()
+    public function isSingularViewed(): bool
     {
         return $this->singularViewed;
     }
@@ -65,7 +66,7 @@ trait VisitableEntityTrait
     /**
      * @return bool
      */
-    public function isPluralViewed()
+    public function isPluralViewed(): bool
     {
         return $this->pluralViewed;
     }
@@ -73,7 +74,7 @@ trait VisitableEntityTrait
     /**
      * @return int
      */
-    public function getSingularViewCount()
+    public function getSingularViewCount(): int
     {
         return $this->singularViewCount;
     }
@@ -83,7 +84,7 @@ trait VisitableEntityTrait
      *
      * @return $this
      */
-    public function setSingularViewCount($singularViewCount)
+    public function setSingularViewCount($singularViewCount): self
     {
         $this->singularViewCount = $singularViewCount;
 
@@ -95,7 +96,7 @@ trait VisitableEntityTrait
      *
      * @return int
      */
-    public function onSingularViewed()
+    public function onSingularViewed(): int
     {
         $this->singularViewed = true;
 
@@ -105,7 +106,7 @@ trait VisitableEntityTrait
     /**
      * @return int
      */
-    public function getPluralViewCount()
+    public function getPluralViewCount(): int
     {
         return $this->pluralViewCount;
     }
@@ -115,7 +116,7 @@ trait VisitableEntityTrait
      *
      * @return $this
      */
-    public function setPluralViewCount($pluralViewCount)
+    public function setPluralViewCount($pluralViewCount): self
     {
         $this->pluralViewCount = $pluralViewCount;
 
@@ -127,7 +128,7 @@ trait VisitableEntityTrait
      *
      * @return int
      */
-    public function onPluralViewed()
+    public function onPluralViewed(): int
     {
         $this->pluralViewed = true;
 

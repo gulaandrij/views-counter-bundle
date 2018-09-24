@@ -2,6 +2,11 @@
 
 namespace Lavulator\ViewsCounterBundle\Model;
 
+/**
+ * Interface VisitableInterface
+ *
+ * @package Lavulator\ViewsCounterBundle\Model
+ */
 interface VisitableInterface
 {
     /**
@@ -9,64 +14,64 @@ interface VisitableInterface
      *
      * @var string
      */
-    const SINGULAR_VIEW_FIELD = 'singularViewCount';
+    public const SINGULAR_VIEW_FIELD = 'singularViewCount';
 
     /**
      * Plural Views entity field.
      *
      * @var string
      */
-    const PLURAL_VIEW_FIELD = 'pluralViewCount';
+    public const PLURAL_VIEW_FIELD = 'pluralViewCount';
 
     /**
      * Session key.
      *
      * @var string
      */
-    const SESSION_KEY = '_views_count';
+    public const SESSION_KEY = '_views_count';
 
     /**
      * @return int
      */
-    public function getId();
+    public function getId(): int;
 
     /**
      * @return bool
      */
-    public function isSingularViewed();
+    public function isSingularViewed(): bool;
 
     /**
      * @return bool
      */
-    public function isPluralViewed();
+    public function isPluralViewed(): bool;
 
     /**
      * Unique visitor id for every user.
      *
      * @return string
      */
-    public function getVisitorId();
+    public function getVisitorId(): string;
 
     /**
      * Visitable name for every object/entity.
      *
      * @return string
      */
-    public function getVisitable();
+    public function getVisitable(): string;
 
     /**
      * Increase the number of singular views.
      *
      * @return int
      */
-    public function onSingularViewed();
+    public function onSingularViewed(): int;
 
     /**
      * Increase the number of plural views.
      *
      * @return int
      */
-    public function onPluralViewed();
+    public function onPluralViewed(): int;
 
     /**
      * Increase the number of unique views.

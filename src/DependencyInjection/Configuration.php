@@ -8,9 +8,9 @@ use Symfony\Component\Config\Definition\ConfigurationInterface;
 class Configuration implements ConfigurationInterface
 {
     /**
-     * {@inheritdoc}
+     * @return TreeBuilder
      */
-    public function getConfigTreeBuilder()
+    public function getConfigTreeBuilder(): TreeBuilder
     {
         $treeBuilder = new TreeBuilder();
         $rootNode    = $treeBuilder->root('lavulator_views_counter');
@@ -18,9 +18,8 @@ class Configuration implements ConfigurationInterface
         $rootNode
             ->addDefaultsIfNotSet()
             ->children()
-                ->scalarNode('use_query_builder')->defaultFalse()->end()
-            ->end()
-        ;
+            ->scalarNode('use_query_builder')->defaultFalse()->end()
+            ->end();
 
         return $treeBuilder;
     }

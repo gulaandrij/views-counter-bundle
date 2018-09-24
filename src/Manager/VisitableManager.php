@@ -2,12 +2,21 @@
 
 namespace Lavulator\ViewsCounterBundle\Manager;
 
+use Doctrine\ORM\EntityManagerInterface;
 use Lavulator\ViewsCounterBundle\Model\VisitableInterface;
 use Lavulator\ViewsCounterBundle\Model\VisitableManagerInterface;
-use Doctrine\ORM\EntityManagerInterface;
 
+/**
+ * Class VisitableManager
+ *
+ * @package Lavulator\ViewsCounterBundle\Manager
+ */
 class VisitableManager implements VisitableManagerInterface
 {
+
+    /**
+     * @var EntityManagerInterface
+     */
     private $em;
 
     /**
@@ -21,16 +30,15 @@ class VisitableManager implements VisitableManagerInterface
     }
 
     /**
-     * {@inheritdoc}
+     * @param VisitableInterface $visitable
      */
-    public function update(VisitableInterface $visitable)
+    public function update(VisitableInterface $visitable): void
     {
         $qb = $this->em->createQueryBuilder();
 
-        $qb->update(get_class($visitable), 'o')
+        $qb->update(\get_class($visitable), 'o')
             ->where('o.id = :id')
-            ->setParameter('id', $visitable->getId())
-        ;
+            ->setParameter('id', $visitable->getId());
 
         if (true === $visitable->isSingularViewed()) {
             $key    = sprintf('o.%s', $visitable::SINGULAR_VIEW_FIELD);

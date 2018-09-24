@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ruleset name="ceek">
+    <description>
+        The coding standard.
+        Author Gula Andriy
+        Created with the PHP Coding Standard Generator. http://edorian.github.com/php-coding-standard-generator/#phpcs
+    </description>
+
+    <exclude-pattern>*/build/*</exclude-pattern>
+    <exclude-pattern>*/vendor/*</exclude-pattern>
+    <exclude-pattern>./var/*</exclude-pattern>
+    <exclude-pattern>./public/*</exclude-pattern>
+    <exclude-pattern>./config/*</exclude-pattern>
+    <exclude-pattern>./bin/*</exclude-pattern>
+    <exclude-pattern>./src/Kernel.php</exclude-pattern>
+    <exclude-pattern>./src/Migrations/*</exclude-pattern>
+    <exclude-pattern>*min.js</exclude-pattern>
+    <exclude-pattern>*min.css</exclude-pattern>
+    <exclude-pattern>./tests/*</exclude-pattern>
+
+    <arg name="extensions" value="php"/>
+    <arg value="spn"/>
+    <arg name="colors"/>
+    <arg name="cache"/>
+    <arg name="parallel" value="30"/>
+    <arg name="report" value="code"/>
+
+    <rule ref="SelectoCodingStandard"/>
+
+</ruleset>
