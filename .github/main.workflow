@@ -4,6 +4,6 @@ workflow "New workflow" {
 }
 
 action "composer" {
-  uses = "composer"
+  uses = "_/php"
   runs = "composer inst"
 }
