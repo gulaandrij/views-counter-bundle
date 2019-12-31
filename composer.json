@@ -19,13 +19,13 @@
     "symfony/framework-bundle": "^2.7 || ^3.0 || ^4.0",
     "doctrine/orm": "2.6.* || 2.7.*",
     "symfony/routing": "^4.1",
-    "doctrine/doctrine-bundle": "^1.0",
+    "doctrine/doctrine-bundle": "^1.0 || ^2",
     "symfony/var-dumper": "^4.1"
   },
   "require-dev": {
     "gulaandrij/coding-standard": "^1.0.2",
     "symfony/phpunit-bridge": "^4.1",
-    "liip/functional-test-bundle": "~2.0@alpha",
+    "liip/functional-test-bundle": "^3.3",
     "symfony/yaml": "^4.1"
   },
   "license": "MIT",
@@ -42,7 +42,7 @@
   "config": {
     "optimize-autoloader": true
   },
-  "minimum-stability": "dev",
+  "minimum-stability": "stable",
   "prefer-stable": true,
   "extra": {
     "thanks": {

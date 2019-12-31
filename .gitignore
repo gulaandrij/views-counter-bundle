@@ -3,3 +3,5 @@
 /tests/App/cache/
 /tests/App/logs/
 /tests/db.sqlite
+.phpunit.result.cache
+var/
